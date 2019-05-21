@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <%-include("partials/head")%>
+    </head>
+<style>
+    body{
+        background: #1c92d2;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    </style>
+<body>
+  <br>
+
+    <div class="row">
+    
+        <div class="col-sm-4 mb-5">
+         <%for(var i=0; i < resp.length ;i++) {%>
+          <%console.log(resp)%>
+          <div class="card mx-auto border-info" style="width: 18rem; margin: 20px">
+                <img src="http://lorempixel.com/g/400/200" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%=resp[i].nombre%></h5>
+                  <p class="card-text"><%=resp[i].sigla%></p>
+                  <a href="/MostrPrac" class="btn btn-primary">Ingresar</a>
+                </div>  
+                      
+              </div> 
+        <% }%> 
+     </div>
+       
+    </div>
+    <%for(var i=0; i < resp.length ;i++) {%>
+    <h2><%=resp[i].nombre%> </h2>
+          <% }%> 
+    
+</body>
+<%-include("partials/diseño")%>
+</html>

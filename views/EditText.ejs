@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>Editor de Texto</title>
+                <script src="https://cdn.ckeditor.com/4.11.4/full-all/ckeditor.js"></script>
+                </head> 
+                <%-include("partials/head")%>
+        <body>
+                <nav class="navbar navbar-dark bg-dark">
+                        <a class="navbar-brand" href="MostrPrac">Atras</a>
+                        <a class="navbar-brand" href="EditCod">Codigo</a>
+                      </nav>
+                <form action="/api/practicas" method="POST" >
+                      <textarea name="texto"></textarea>
+                      <div class="form-row">
+                                <div class="col">
+                                  <input type="text" name="titulo" class="form-control" placeholder="Insertar titulo">
+                                </div>
+                                <div class="col">
+                                  <button type="submit" class="btn btn-primary form-control">Guardar</button> 
+                                </div>
+                              </div>
+                      
+                      
+                </form>
+                
+                <script>
+                        CKEDITOR.replace( 'texto' ,{
+                            language: 'es',
+                            uiColor: '#aaaaaa',
+                            extraPlugins: 'mathjax',
+                            mathJaxLib: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+                            height: 385,
+                            
+                        });         
+                        CKEDITOR.editorConfig = function( config ) {
+                            
+                    };
+                </script>
+        </body>
+        <%-include("partials/diseño")%>
+</html>
+
+
+
+
+
+
+
+
+
+
+

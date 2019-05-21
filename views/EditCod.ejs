@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>webEditor</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      height: 100%;
+    }
+    #container {
+      height: 100%;
+      width: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      position: center;
+    }
+    #htmleditor {
+      height: 10%;
+      min-height: 50vh;
+      width: 100%;
+      display: inline-block;
+    }
+    #result {
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      height: 50%;
+    }
+    #informacion {
+    position:absolute;
+    left:37px;
+    top:210px;
+    width:1200px;
+    height:490px;
+    z-index:0;
+    overflow: hidden;
+    outline: none;
+    clip: rect ( 100px 0 0 0);
+    }
+    body{
+        background: #1c92d2;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+  </style>
+  <%-include("partials/head")%>
+  </head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="MostrPrac">Atras</a>
+        <a class="navbar-brand" href="EditText">Documento</a>
+      </nav>
+      <select id="mode" size="1">
+          <option value="ace/mode/html" selected>html</option>
+          <option value="ace/mode/javascript" >javascript</option>
+          <option value="ace/mode/css">css</option>
+          <option value="ace/mode/java">java</option>
+          <option value="ace/mode/php">php</option>
+      </select>
+  <div id="container">
+    <div id="htmleditor"></div>
+  </div>
+  <div id="informacion"><iframe id="result" frameborder="0" ></iframe></div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="uft-8"></script>
+
+  <script>
+    function update() {
+      var res = document.getElementById("result").contentWindow.document;
+      res.open();
+      res.write(eh.getValue());
+      res.close();
+    }
+    function setEditor() {
+      window.eh = ace.edit("htmleditor");
+      eh.setTheme("ace/theme/monokai");
+      eh.session.setMode("ace/mode/html");
+      $('#mode').on('change', function (ev) {
+          var mode = $('option:selected').attr('value');
+          console.log(mode)
+          eh.getSession().setMode(mode);
+      });
+      eh.getSession().on('change', () => {
+        update();
+      });
+    }
+    setEditor();
+    update();
+  </script>
+</body>
+<%-include("partials/diseño")%>
+</html>
