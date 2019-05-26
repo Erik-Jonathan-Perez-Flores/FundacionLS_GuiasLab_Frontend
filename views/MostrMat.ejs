@@ -15,30 +15,95 @@
     }
     </style>
 <body>
-  <br>
+<a class="menu-toggle rounded" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a class="js-scroll-trigger" href="#">UATF</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#home">Inicio</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#portfolio">Materias</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="js-scroll-trigger" href="#contact">Github</a>
+      </li>
+    </ul>
+  </nav>
 
-    <div class="row">
-    
-        <div class="col-sm-4 mb-5">
-         <%for(var i=0; i < resp.length ;i++) {%>
-          <%console.log(resp)%>
-          <div class="card mx-auto border-info" style="width: 18rem; margin: 20px">
-                <img src="http://lorempixel.com/g/400/200" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><%=resp[i].nombre%></h5>
-                  <p class="card-text"><%=resp[i].sigla%></p>
-                  <a href="/MostrPrac" class="btn btn-primary">Ingresar</a>
-                </div>  
-                      
-              </div> 
-        <% }%> 
-     </div>
-       
+  <header class="callout d-flex" id="home">
+    <div class="container text-center my-auto">
+      <h1 class="mb-1">Bienvenido!!</h1>
+      <h3 class="mb-5">
+        <em>Es hora de crear su Guia de Laboratorio y mucho más..</em>
+      </h3>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Vamos a Empezar</a>
     </div>
-    <%for(var i=0; i < resp.length ;i++) {%>
-    <h2><%=resp[i].nombre%> </h2>
-          <% }%> 
-    
-</body>
+    <div class="overlay"></div>
+  </header>
+
+<!-- materias -->
+
+ <% console.log('Ejs/////////////////////') %>
+    <%var c = resp.materia.length%>
+    <% console.log(resp) %>
+    <% console.log("Tamaño del vector",c) %>
+    <%var a = [], b = []
+      a = resp.materia[1].nombre
+      b = resp.materia[1].sigla   
+      
+      %>
+    <% console.log(a,b) %>
+
+  <section class="content-section" id="portfolio">
+    <div class="container">
+      <div class="content-section-heading text-center">
+        <h2 class="mb-5">Lista de Materias</h2>
+      </div>
+     
+      <div class="row no-gutters">
+       <%for(var i=0; i<resp.materia.length ;i++) {%>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="/MostrPrac">
+            <span class="caption">
+              <span class="caption-content">
+                <h1><%=resp.materia[i].sigla%></h1>
+                <p class="mb-0"><%=resp.materia[i].nombre%></p>
+              </span>
+            </span>
+            <img class="img-fluid" src="img/banner.jpg" alt="">
+          </a>
+        </div>
+           <% }%>  
+    </div>
+  </section>
+
+
+  <!-- contact -->
+  <footer class="footer text-center" id="contact">
+    <div class="container">
+      <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/Erik-Jonathan-Perez-Flores/FundacionLS_GuiasLab_Frontend">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+         <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="https://github.com/Erik-Jonathan-Perez-Flores/FundacionLS_GuiasLab_Backend">
+            <i class="icon-social-github"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
+    </div>
+  </footer>
+
+     
+
 <%-include("partials/diseño")%>
+</body>
 </html>

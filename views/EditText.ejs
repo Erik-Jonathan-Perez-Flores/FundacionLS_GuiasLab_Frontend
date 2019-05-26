@@ -7,23 +7,54 @@
                 </head> 
                 <%-include("partials/head")%>
         <body>
-                <nav class="navbar navbar-dark bg-dark">
+                <nav class="navbar navbar-dark bg-info">
                         <a class="navbar-brand" href="MostrPrac">Atras</a>
-                        <a class="navbar-brand" href="EditCod">Codigo</a>
                       </nav>
-                <form action="/api/practicas" method="POST" >
+            
+                        <a class="menu-toggle rounded" href="#">
+                        <i class="fas fa-bars"></i>
+                        </a>
+                        <nav id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                                <a class="js-scroll-trigger" href="#">UATF</a>
+                        </li>
+                        <li class="sidebar-nav-item">
+                                <a class="js-scroll-trigger" href="EditCod">Codigo</a>
+                        </li>
+                        <li class="sidebar-nav-item">
+                                <a class="js-scroll-trigger" href="/">Salir</a>
+                        </li>
+                        </ul>
+                        </nav>
+
+                      
+                           <%
+                       var a = resp.practica.length,b
+                        b = a+1
+                       %>
+                <form action="/MostrPrac" method="POST" >
                       <textarea name="texto"></textarea>
+                              
                       <div class="form-row">
                                 <div class="col">
-                                  <input type="text" name="titulo" class="form-control" placeholder="Insertar titulo">
+                                <blockquote class="blockquote text-center">
+                                <p class="mb-0">Practica: N°</p>
+                                </blockquote>
                                 </div>
                                 <div class="col">
-                                  <button type="submit" class="btn btn-primary form-control">Guardar</button> 
+                                  <input type="text" name="titulo" class="form-control" value="<%=b%>">
                                 </div>
-                              </div>
-                      
+                                <div class="col">
+                                  <button type="submit" class="btn btn-info form-control">Guardar</button> 
+                                </div>
+                        </div>
+                       
                       
                 </form>
+                     
+
+                
                 
                 <script>
                         CKEDITOR.replace( 'texto' ,{
