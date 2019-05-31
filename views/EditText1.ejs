@@ -7,29 +7,23 @@
                 </head> 
                 <%-include("partials/head")%>
         <body>
-                <nav class="navbar navbar-dark bg-dark">
-                        <a class="navbar-brand" href="MostrPrac">Atras</a>
+                <nav class="navbar navbar-dark bg-info">
+                        <a class="navbar-brand" href="/MostrPrac">Atras</a>
                         <a class="navbar-brand" href="EditCod">Codigo</a>
                       </nav>
-                      <%console.log("//////////editar")%>
-                <form action="/MostrPrac" method="POST" >
-                      <textarea name="texto"><%=resp.practica[0].texto%></textarea>
+                <form action="/MostrPrac" method="#" >
+                      <textarea name="texto"><%=resp.practica.texto%></textarea>
                               
                       <div class="form-row">
-                                <div class="col">
-                                <blockquote class="blockquote text-center">
-                                <p class="mb-0">Practica: N°</p>
-                                </blockquote>
+
+                                <div class="input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">Practica: N°</span>
                                 </div>
-                                <div class="col">
-                                  <input type="text" name="titulo" class="form-control" value="<%=resp.practica[0].titulo%>">
-                                </div>
-                                <div class="col">
-                                  <button type="submit" class="btn btn-primary form-control">Guardar</button> 
+                                <input type="text" name="titulo" class="form-control" value="<%=resp.practica.titulo%>">
+                                <button type="submit" class="btn btn-info form-control">Guardar</button>
                                 </div>
                               </div>
-                       
-                      
                 </form>
                 
                 <script>

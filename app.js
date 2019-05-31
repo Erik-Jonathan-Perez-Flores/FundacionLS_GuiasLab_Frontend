@@ -31,12 +31,15 @@ app.get('/', (req,res)=>{
     
 })
 
+app.get('/EditText1', function(req, res){
+    res.render('/EditText1')
+});
 
 app.get('/MostrPrac', function(req, res){
     fetch('http://localhost:7777/api/practica')
     .then(resp => resp.json())
     .then(resp =>{
-        console.log(resp)
+        //console.log(resp)
         return res.render('MostrPrac', {resp});
     })
 });
@@ -44,7 +47,7 @@ app.get('/EditText', (req,res)=>{
     fetch('http://localhost:7777/api/practica')
     .then(resp => resp.json())
     .then(resp =>{
-        console.log(resp)
+        //console.log(resp)
         return res.render('EditText', {resp});
     })
 });
@@ -78,8 +81,11 @@ app.get('/EditCod', (req,res)=>{
     res.render('EditCod');
 })
 
-app.get('/EditText1', (req,res)=>{
-    fetch('http://localhost:7777/api/practica')
+app.get('/EditPract/:id', (req,res)=>{
+    var id = req.params
+
+    //console.log("------>  updateID: ",id.id)
+    fetch('http://localhost:7777/api/practica/'+id.id)
     .then(resp => resp.json())
     .then(resp =>{
         console.log(resp)
@@ -87,17 +93,27 @@ app.get('/EditText1', (req,res)=>{
     })
 });
 
-app.get('/delete/:id',(req,res)=>{
+app.get('/practica/:id',(req,res)=>{
+    /*var id = req.params // paramas es un parametro de reqs
     console.log('///////////delete')
-    console.log(req.body._id)
-    res.send("eliminado")
+    console.log(id,"  <<<<<<<< ", id.id); //id.id = muestra las id sin corchetes
+    res.send("eliminado")*/
+
+    var delR = req.url;
+    fetch('http://localhost:7777'+delR, { method: 'DELETE'})
+    .then(resp => resp.json())
+    .catch(error => console.error('Error:', error))
+    .then(resp =>{
+        console.log(resp);
+        res.redirect('/MostrPrac');
+    });
 })
 
 ////////////subir///////////////
 
 
 app.post('/subir',(req,res)=>{
-   console.log(req.file);
+   //res.status(200).json(req);
 });
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GuiasLab</title>
     <%-include("partials/head")%>
 
     </head>
@@ -48,12 +48,11 @@
         <div class="col-lg-6">
           <a class="portfolio-item" href="#">
             <span class="caption">
-              <span class="caption-content">
-              <%console.log(resp.practica[i]._id)%>
+              <span class="caption-content">            
                 <h1>Practica: N° <%=resp.practica[i].titulo%></h1>
-                <p class="mb-0"> <%=resp.practica[i].texto%></p>
-                <button type="button" class="btn btn-info" onclick="location.href='/EditText1'">Editar</button>
-                <button type="button" class="btn btn-danger" onclick="location.href='/delete/<%(resp.practica[i]._id)%>'">Eliminar</button>
+                <!--<p class="mb-0"> <%=resp.practica[i].texto%></p>-->
+                <button type="button" class="btn btn-info" onclick="location.href='/EditPract/<%=resp.practica[i]._id%>'">Editar</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='/practica/<%=resp.practica[i]._id%>'">Eliminar</button>
               </span>
             </span>
             
@@ -63,7 +62,7 @@
   <% }%> 
   </div>
 <br><br><br><br>
- <!-- Services -->
+ <!-- subir -->
   <section class="content-section bg-primary text-white text-center" id="archivos">
     <div class="container">
       <div class="content-section-heading">
