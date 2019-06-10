@@ -1,137 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GuiasLab</title>
-    <%-include("partials/head")%>
-
-    </head>
-<body>
-        <nav class="navbar navbar-dark bg-info">
-                <a class="navbar-brand" href="/">Atras</a>    
-              </nav>
-<a class="menu-toggle rounded" href="#">
-    <i class="fas fa-bars"></i>
-  </a>
-  <nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-        <a class="js-scroll-trigger" href="#">UATF</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="EditText">Crear</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="EditCod">Codigo</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#archivos">Subir Archivos</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="#contact">Github</a>
-      </li>
-      <li class="sidebar-nav-item">
-        <a class="js-scroll-trigger" href="/">Volver</a>
-      </li>
-      </ul>
-  </nav>
-<br>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <%-include("partials/plantilla")%>
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+  <%-include("partials/style")%>
   
-    <div class="container">
-      <div class="content-section-heading text-center">
-        <h2 class="mb-5">Lista De Tareas</h2>
-      </div>
-      <div class="row no-gutters">
-      <%for(var i=0; i<resp.practica.length ;i++) {%>
-        <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
-            <span class="caption">
-              <span class="caption-content">            
-                <h1>Practica: N° <%=resp.practica[i].titulo%></h1>
-                <!--<p class="mb-0"> <%=resp.practica[i].texto%></p>-->
-                <button type="button" class="btn btn-info" onclick="location.href='/EditPract/<%=resp.practica[i]._id%>'">Editar</button>
-                <button type="button" class="btn btn-danger" onclick="location.href='/practica/<%=resp.practica[i]._id%>'">Eliminar</button>
-              </span>
-            </span>
-            
-            <img class="img-fluid" src="img/portfolio-1.jpg" alt="..">
-          </a>
-        </div>
-  <% }%> 
-  </div>
-<br><br><br><br>
- <!-- subir -->
-  <section class="content-section bg-primary text-white text-center" id="archivos">
-    <div class="container">
-      <div class="content-section-heading">
-        <h2 class="mb-5">Subir Archivos</h2>
-        <form action="/subir" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image">
-          <button type="submit">
-              Subir
-          </button>
-      </form>
-      </div>
-      <div class="row">
-      
-      </div>
-    </div>
-  </section>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper " >
 
-<!-- contact -->
-  <footer class="footer text-center" id="contact">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://github.com/Erik-Jonathan-Perez-Flores/FundacionLS_GuiasLab_Frontend">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-         <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://github.com/Erik-Jonathan-Perez-Flores/FundacionLS_GuiasLab_Backend">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
-    </div>
-  </footer>
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b>LTE</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-
-
-<!--
-              <form action="#" method="">
-          <%for(var i=0; i<resp.practica.length ;i++) {%>
-            <div class="card mx-auto  border-info " style="height: 90%; width:90%; margin-top: 30px; ">
-                    <h5 class="card-header">Practica: N°<%=resp.practica[i].titulo%>
-                     ---------------comentar esto--------------
-                                     botton X
-                     ---------------comentar esto--------------
-                    <button type="button" class="close" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    ---------------comentar esto--------------
-                                  hacer un Delete
-                    ---------------comen<a href="EditText1" class="btn btn-info">Mostrar Practica</a>ar esto--------------
-                    </h5>
-                    <div class="card-body">
-                      <h5 class="card-title">Contenido</h5>
-                      <p class="card-text"><%=resp.practica[i].texto%></p>
-                      <a href="EditText1" class="btn btn-info">Mostrar Practica</a>
-                      <input type="submit" class="btn btn-danger" value="Eliminar">
-                                            
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 4 messages</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- start message -->
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                       </div>
+                      <h4>
+                        Support Team
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <!-- end message -->
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        AdminLTE Design Team
+                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Developers
+                        <small><i class="fa fa-clock-o"></i> Today</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Sales Department
+                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Reviewers
+                        <small><i class="fa fa-clock-o"></i> 2 days</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">See All Messages</a></li>
+            </ul>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 9 tasks</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Design some buttons
+                        <small class="pull-right">20%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Create a nice theme
+                        <small class="pull-right">40%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">40% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Some task I need to do
+                        <small class="pull-right">60%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Make beautiful transitions
+                        <small class="pull-right">80%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">80% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="#">View all tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Alexander Pierce</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Alexander Pierce - Web Developer
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
                 </div>
-              
-                 <% }%>   
-                 </form>
--->
-                <!-- Scroll to Top Button-->
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fab fa-creative-commons-share"></i><span> Crear Guia</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="/EditText"><i class="fas fa-file-signature"></i> Crear Guia</a></li>
+            <li class="active"><a href="/EditCod"><i class="fas fa-code"></i>Editor De Codigo</a></li>
+            <li class="active"><a href="/ArchSub"><i class="fas fa-box-open"></i>Archivos Subidos</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Layout Options</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Boxed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          </ul> <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-th"></i> <span>Widgets</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Morris</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Flot</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>UI Elements</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Sliders</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Timeline</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Modals</a></li>
+          </ul>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper body">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Lista De Practicas
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fas fa-chevron-circle-left"></i> Atras</a></li>
+        <li class="active">Materias</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+       <%for(var i=0; i<resp.practica.length ;i++) {%>
+        <!-- ./col -->
+        <div class="col-lg-4 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner" >
+              <h2>Practica: N° <%=resp.practica[i].titulo%></h2>
+              <p></p>
+            </div>
+            <div class="icon" >
+              <i class="fas fa-file-invoice"></i>
+            </div>
+                 <button type="button" class="btn btn-info btn-sm" onclick="location.href='/EditPract/<%=resp.practica[i]._id%>'">Editar</button>
+                 <button type="button" class="btn btn-danger btn-sm" onclick="Elimina('<%=resp.practica[i]._id%>') ">Eliminar</button> 
+            </div>
+        </div>
+      <% }%>
+    </section> 
+     <script>
+       function Elimina(a){
+        swal({
+        title: "Estas Seguro?",
+        text: "Una vez eliminado, no podrá recuperar esta Practica!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+           fetch('http://localhost:7777/practica/'+a, {method: 'DELETE'})
+                .then(data=>data.json())
+                .then(data=>{
+                    console.log(data);
+                    swal("ECHO! La Practica a sido eliminado! OK o Esperar(2s)", {
+                      icon: "success",
+                    });
+                    setTimeout('document.location.reload()',2000);
+                })
+                .catch(err=>{
+                    console.log(err,'error c')
+                })
+        } else {
+          swal("La Practica esta segura!");
+        }
+      });
+      }
+     </script>   
+    <!-- /.content -->
  
 
-             
-</body>
+  <!-- /.content-wrapper -->
+  </div>
+</div>
 <%-include("partials/diseño")%>
-</html>
+
+    
+
+

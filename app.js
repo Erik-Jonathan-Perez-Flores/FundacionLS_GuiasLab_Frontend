@@ -31,6 +31,16 @@ app.get('/', (req,res)=>{
     
 })
 
+app.get('/ArchSub', (req,res)=>{
+    
+    fetch('http://localhost:7777/subirArchivo')
+    .then(resp => resp.json())
+    .then(resp =>{
+        return res.render('ArchSub', {resp});
+    });
+    
+})
+
 app.get('/EditText1', function(req, res){
     res.render('/EditText1')
 });
@@ -68,6 +78,7 @@ app.post('/MostrPrac',(req,res)=>{
         .then(res => res.json())
         .then(resp =>{
             console.log(resp)
+            
             return res.redirect('/MostrPrac');
         })
         .catch(error => console.error('Error:', error))
@@ -75,6 +86,12 @@ app.post('/MostrPrac',(req,res)=>{
           console.log(data);
          
         })
+});
+
+
+app.put('/MostrPrac',(req,res)=>{
+    console.log("////Put////")
+    console.log(req)
 });
 
 app.get('/EditCod', (req,res)=>{
@@ -91,29 +108,6 @@ app.get('/EditPract/:id', (req,res)=>{
         console.log(resp)
         return res.render('EditText1', {resp});
     })
-});
-
-app.get('/practica/:id',(req,res)=>{
-    /*var id = req.params // paramas es un parametro de reqs
-    console.log('///////////delete')
-    console.log(id,"  <<<<<<<< ", id.id); //id.id = muestra las id sin corchetes
-    res.send("eliminado")*/
-
-    var delR = req.url;
-    fetch('http://localhost:7777'+delR, { method: 'DELETE'})
-    .then(resp => resp.json())
-    .catch(error => console.error('Error:', error))
-    .then(resp =>{
-        console.log(resp);
-        res.redirect('/MostrPrac');
-    });
-})
-
-////////////subir///////////////
-
-
-app.post('/subir',(req,res)=>{
-   //res.status(200).json(req);
 });
 
 

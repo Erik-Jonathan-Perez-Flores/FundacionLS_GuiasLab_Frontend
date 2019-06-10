@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <meta charset="utf-8">
-                <title>Editor de Texto</title>
-                <script src="https://cdn.ckeditor.com/4.11.4/full-all/ckeditor.js"></script>
-                </head> 
-                <%-include("partials/head")%>
-        <body>
-                <nav class="navbar navbar-dark bg-info">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  
+<!--EDITORTEXT-->
+<script src="https://cdn.ckeditor.com/4.11.4/full-all/ckeditor.js"></script>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-info">
                         <a class="navbar-brand" href="/MostrPrac">Atras</a>
-                        <a class="navbar-brand" href="EditCod">Codigo</a>
-                      </nav>
-                <form action="/MostrPrac" method="#" >
+    </nav>
+    <!-- Main content -->
+   
+
+                <form action="/MostrPrac" method="GET" >
                       <textarea name="texto"><%=resp.practica.texto%></textarea>
                               
                       <div class="form-row">
-
-                                <div class="input-group">
+                                <div class="input-group input-group-lg">
                                 <div class="input-group-prepend">
-                                <span class="input-group-text">Practica: N°</span>
+                                <span class="input-group-text" id="basic-addon3">Practica: N° </span>
+                                
                                 </div>
                                 <input type="text" name="titulo" class="form-control" value="<%=resp.practica.titulo%>">
-                                <button type="submit" class="btn btn-info form-control">Guardar</button>
+                                <button type="submit" class="btn btn-info form-control">Guardar</button> 
                                 </div>
-                              </div>
+                     </div>
+                       
+                      
                 </form>
+                     
+
+                
                 
                 <script>
                         CKEDITOR.replace( 'texto' ,{
@@ -39,17 +53,15 @@
                             
                     };
                 </script>
-        </body>
-        <%-include("partials/diseño")%>
+
+
+    
+    <!-- /.content -->
+
+</body>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
 </html>
-
-
-
-
-
-
-
-
-
-
-

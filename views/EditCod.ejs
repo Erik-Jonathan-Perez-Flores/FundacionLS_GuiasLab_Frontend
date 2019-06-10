@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>webEditor</title>
-  <style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <%-include("partials/plantilla")%>
+
+<style>
     body {
       margin: 0px;
       padding: 0px;
@@ -42,19 +43,147 @@
     outline: none;
     clip: rect ( 100px 0 0 0);
     }
-    body{
-        background: #1c92d2;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
+    .body{
+      background: #C8C8C8;  /* fallback for old browsers */
+      }
   </style>
-  <%-include("partials/head")%>
+  
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+
   </head>
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="MostrPrac">Atras</a>
-        <a class="navbar-brand" href="EditText">Documento</a>
-      </nav>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b>LTE</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+ 
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fab fa-creative-commons-share"></i> <span>Crear Guia</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li class="active"><a href="/MostrPrac"><i class="fab fa-pinterest-p"></i> Mostrar Practicas</a></li>
+            <li class="active"><a href="/EditText"><i class="fas fa-file-signature"></i> Crear Guia</a></li>
+            <li class="active"><a href="/ArchSub"><i class="fas fa-box-open"></i>Archivos Subidos</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Layout Options</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Boxed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          </ul> <li>
+          <a href="pages/widgets.html">
+            <i class="fa fa-th"></i> <span>Widgets</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green">new</small>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Morris</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Flot</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>UI Elements</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Sliders</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Timeline</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Modals</a></li>
+          </ul>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper body">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h2>
+        Editor De Codigo
+        <small>Crear Guia</small>
+      </h2>
+      <ol class="breadcrumb">
+        <li><a href="/MostrPrac"><i class="fas fa-chevron-circle-left"></i> Atras</a></li>
+        <li class="active">Practicas</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    
+    
+    
       <select id="mode" size="1">
           <option value="ace/mode/html" selected>html</option>
           <option value="ace/mode/javascript" >javascript</option>
@@ -93,6 +222,35 @@
     setEditor();
     update();
   </script>
-</body>
+
+    
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
+  </footer>
+
+
 <%-include("partials/diseño")%>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
