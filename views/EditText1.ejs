@@ -4,43 +4,75 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Dashboard</title>
-  
-<!--EDITORTEXT-->
 <script src="https://cdn.ckeditor.com/4.11.4/full-all/ckeditor.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="">
 
-    <nav class="navbar navbar-dark bg-info">
-                        <a class="navbar-brand" href="/MostrPrac">Atras</a>
-    </nav>
-    <!-- Main content -->
-   
+ <!-- Main content  -->
+                    <%=console.log("ID de EditText1",resp.practica._id)%>
+                  <form action="/actualizar/<%=resp.practica._id%>" method="POST">
+       
+                      <textarea name="texto" id="texto"><%=resp.practica.texto%></textarea>
 
-                <form action="/MostrPrac" method="GET" >
-                      <textarea name="texto"><%=resp.practica.texto%></textarea>
-                              
-                      <div class="form-row">
-                                <div class="input-group input-group-lg">
-                                <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon3">Practica: N° </span>
-                                
-                                </div>
-                                <input type="text" name="titulo" class="form-control" value="<%=resp.practica.titulo%>">
-                                <button type="submit" class="btn btn-info form-control">Guardar</button> 
-                                </div>
-                     </div>
-                       
-                      
-                </form>
-                     
 
-                
-                
+                        <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Practica: N° </span>
+                        <input type="text" id="titulo" name="titulo" class="form-control" value="<%=resp.practica.titulo%>">
+                        
+                            <div class="input-group-btn">
+                            <button type="submit" class="btn btn-info form-control" >Guardar</button>                     
+                        </div>
+                        </div>
+                         
+                  </form>
                 <script>
+                        //<%=resp.practica.texto%>  onclick="guarda('<%=resp.practica._id%>')"
+                        /*
+                        function guarda(a){
+                                
+                                //var aux=[]
+                                var text = document.getElementById('texto').value;
+                                var title = document.getElementById('titulo').value;
+
+                                var datos = {
+                                    titulo : title,
+                                    texto : text
+                                };
+                                var prueba = datos.texto
+                                //alert(prueba.replace(/<[^>]*>?/g, ''));
+                                alert(prueba);
+                                console.log(datos);
+                                console.log(document.getElementById('texto'));
+
+                                var metodo = {
+                                method: 'PUT',
+                                body: JSON.stringify(datos),
+                                headers:{
+                                'Content-type' : "application/json"
+                                }
+                                };
+                                fetch('http://localhost:7777/practica/'+a, metodo)
+                                .then(data => data.json())
+                                .then(data =>{
+                                    //setTimeout('document.location.reload()',2000);
+                                    console.log(data);
+                                })
+                                .catch(error => console.error('Error:', error))
+                                .then(data => {
+                                 console.log();
+                                 
+                                })
+                            }*/
+
                         CKEDITOR.replace( 'texto' ,{
                             language: 'es',
                             uiColor: '#aaaaaa',
@@ -52,16 +84,86 @@
                         CKEDITOR.editorConfig = function( config ) {
                             
                     };
-                </script>
+                </script
+ 
+ 
+ 
+ 
+ 
 
 
-    
-    <!-- /.content -->
+
+
+
+
 
 </body>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-
+</head>
 </html>
+
+  
+
+    
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

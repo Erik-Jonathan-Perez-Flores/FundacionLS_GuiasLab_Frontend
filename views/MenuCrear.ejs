@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <%-include("partials/plantilla")%>
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  <!--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+  <%-include("partials/style")%>
+  
+
+<!-- 
+CODE MIRROR
+-->
+	<title>Tryit Editor v1.7</title>
+	<link href="scripts/tryit.css" rel="stylesheet" type="text/css" />
+	<link href="codemirror/codemirror.css" rel="stylesheet" />
+	<link href="codemirror/eclipse.css" rel="stylesheet" />
+	<script type="text/javascript" src="scripts/version.js"></script>
+	<script src="http://static.freewebs.getclicky.com/72918594.js" type="text/javascript" async></script>
+	<script type="text/javascript" src="http://tgwebs.webs.com/tryiteditor/manifest.js"></script>
+	<script src="scripts/autoupdatr/update.js" type="text/javascript"></script>
+	<script type="text/javascript" src="scripts/util/md5.js"></script>
+	<script type="text/javascript" src="scripts/autoupdatr/integrity.js"></script>
+	<script src="scripts/autoupdatr/evalresources.js" type="text/javascript"></script>
+	<script src="scripts/filesaver.js" type="text/javascript"></script>
+	<script src="codemirror/codemirror.js" type="text/javascript"></script>
+	<script src="codemirror/closetag.js" type="text/javascript"></script>
+	<script src="codemirror/searchcursor.js" type="text/javascript"></script>
+	<script src="codemirror/match-highlighter.js" type="text/javascript"></script>
+	<script src="codemirror/xml.js" type="text/javascript"></script>
+	<script src="codemirror/css.js" type="text/javascript"></script>
+	<script src="codemirror/javascript.js" type="text/javascript"></script>
+	<script src="codemirror/htmlmixed.js" type="text/javascript"></script>
+
+
+</head>
+<style>
+
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #fff;
+  padding : 5px 5px;
+  width : 1000px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #fff;
+  padding : 5px 5px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #fff;
+  padding : 5px 5px;
+}
+
+</style>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper " >
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b>LTE</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 4 messages</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- start message -->
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Support Team
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <!-- end message -->
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        AdminLTE Design Team
+                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Developers
+                        <small><i class="fa fa-clock-o"></i> Today</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Sales Department
+                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Reviewers
+                        <small><i class="fa fa-clock-o"></i> 2 days</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">See All Messages</a></li>
+            </ul>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 9 tasks</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Design some buttons
+                        <small class="pull-right">20%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Create a nice theme
+                        <small class="pull-right">40%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">40% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Some task I need to do
+                        <small class="pull-right">60%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Make beautiful transitions
+                        <small class="pull-right">80%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">80% Complete</span>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="#">View all tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Alexander Pierce</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Alexander Pierce - Web Developer
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fab fa-creative-commons-share"></i><span> Crear Guia</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="/EditText"><i class="fas fa-file-signature"></i> Crear Guia</a></li>
+            <li class="active"><a href="/EditCod"><i class="fas fa-code"></i>Editor De Codigo</a></li>
+            <li class="active"><a href="/ArchSub"><i class="fas fa-box-open"></i>Archivos Subidos</a></li>
+          </ul>
+        </li>
+       
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+ <section class="content">
+  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper body">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Crear Practica
+        <small>Control panel</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/MostrPrac"><i class="fas fa-chevron-circle-left"></i> Atras</a></li>
+        <li class="active">Mostrar Practicas</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    
+
+<div id="exTab1" class="container">	
+<ul  class="nav nav-pills">
+			<li class="active">
+        <a  href="#1a" data-toggle="tab">Editar Texto</a>
+			</li>
+			<li><a href="#2a" data-toggle="tab">Editar Codigo</a>
+			</li>
+			<li><a href="#3a" data-toggle="tab">Cuestinarios</a>
+			</li>
+  		<li><a href="#4a" data-toggle="tab">Formularios</a>
+			</li>
+		</ul>
+
+			<div class="tab-content clearfix">
+			  <div class="tab-pane active" id="1a">
+
+
+    
+                      <%
+                       var a = resp.practica.length,b
+                        b = a+1
+                       %>
+                     
+         <form action="/MostrPrac" method="POST" >
+                     
+            <textarea name="texto" id="texto" rows="10" cols="80">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </textarea>
+               <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Practica: N° </span>
+                        <input type="text" id="titulo" name="titulo" class="form-control" value="<%=b%>">
+                        
+                            <div class="input-group-btn">
+                            <button type="submit" class="btn btn-info form-control" onclick="guardar()">Guardar</button>                     
+                        </div>
+                        </div>
+          </form>            
+            <script>
+                
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'texto' ,{
+                  height: 305,
+                });
+
+                function guardar() {
+                  setTimeout('document.location.reload()',2000);
+                  alert("Save!!")
+                  swal("Good job!", "You clicked the button!", "success");
+                  
+                }
+            </script>
+        
+  
+
+				</div>
+				
+        <div class="tab-pane" id="2a">
+        
+
+        	<table class="maintable" summary="UI">
+	      	<tr>
+              <td style="width:50%;"><button accesskey="x" id="submit" onclick="startit()" style="margin-bottom:5px; color: green;">RUN <i class="fas fa-greater-than"></i></button> 
+              <textarea class="code_input" cols="40" id="code1" rows="21">
+                    Loading... If this message does not disappear, these things may have happened: 1. You are not connected to the internet 2. Your browser is not supported 3. Tryit Editor has encountered a problem If this happens, try pressing on the Edit and Click Me&gt;&gt;
+                    button. If that doesn't work, please report it using the send feedback button
+              </textarea></td>
+
+		        	<td style="width:50%;">
+                <div class="centered">
+                  <span id="titletext">(Title should appear here)</span>
+                </div><iframe class="result_output" id="view" name="view" src="javascript:''" style="frameborder:0;">Sorry, you need iframes to use Tryit Editor.</iframe>
+              </td>
+	      	</tr>
+
+          <tr class="bottomtext">
+            <td style="text-align:left;">Edit the code above and click the button (or press alt+x) to see the result.</td>
+
+            <td style="text-align:right;">status: <span id="statusline">loading...</span></td>
+          </tr>
+
+            <div id="everythingElse" style="font-family: calibri, verdana, ms sans serif" class="col-lg-12">
+            
+             <span id="disableTitleBG"><input accesskey="t" id="disunable" onclick="disenable();" 
+            style="display:none;" type="checkbox" />
+             <span id="syntaxHiliteBG">
+            <input accesskey="m" id="syntaxHilite" onclick="toggleCodeMirror()" style="display:none;" type="checkbox" />
+        
+            </div>
+	          </table><br />
+
+        </div >
+
+
+        <div class="tab-pane" style="color: black;"id="3a">
+
+        
+        <h1 >Cuestionarios</h1>
+    <form action="/Cuestionarios" method="POST">
+        <input type="text" name="valor" placeholder="numero"> <br>
+        <select name="selc" id="">
+            <option value="falseTrue">false true</option>
+            <option value="otros"> otros</option>
+        </select> <br>
+        <input type="submit" value="enviar">
+    </form>
+    <br><br>
+    <%=selc%> <br>
+    <%if(selc == "falseTrue") {%>
+
+        <form action="/env" method="POST">
+            <%for(var i = 0; i < numero; i ++) { %>
+
+                    <input type="text" name="<%=i+1%>" id="<%=i+1%>" value="">
+                    <input type="radio"  name="<%=i+1%>" value="false">false
+                    <input type="radio" name="<%=i+1%>" value="true">true 
+                    <br><br>       
+            <% } %>
+            <input type="submit" name="" id="" value="enviar esto">
+        </form>
+    <% } else {%>
+        <%for(var i = 0; i < numero; i ++) { %>
+            <input type="text" name="<%=i+1%>" id="<%=i+1%>" value="">
+           <input type="text" name="" id="" placeholder="OTRO"> <br><br>
+            
+        <% } %>
+    <% } 
+    %>
+   
+
+
+        </div>
+          <div class="tab-pane" id="4a">
+          <h3>We use css to change the background color of the content to be equal to the tab</h3>
+				</div>
+			</div>
+  </div>
+
+   
+ </select>
+    <!-- /.content -->
+ 
+
+  <!-- /.content-wrapper -->
+  </div>
+</div>
+<%-include("partials/diseño")%>
+
+    
+
+

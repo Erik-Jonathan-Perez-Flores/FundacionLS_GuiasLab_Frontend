@@ -89,10 +89,22 @@ app.post('/MostrPrac',(req,res)=>{
 });
 
 
-app.put('/MostrPrac',(req,res)=>{
-    console.log("////Put////")
-    console.log(req)
-});
+
+app.get('/MenuCrear', (req,res)=>{
+
+    fetch('http://localhost:7777/api/practica')
+    .then(resp => resp.json())
+    .then(resp =>{
+        //console.log(resp)
+        return res.render('MenuCrear', {
+            resp,
+            numero: numero,
+            selc
+        
+        });
+    })
+})
+
 
 app.get('/EditCod', (req,res)=>{
     res.render('EditCod');
@@ -113,9 +125,67 @@ app.get('/EditPract/:id', (req,res)=>{
 
 
 
+app.get('/EditText2', (req,res)=>{
+    res.render('EditText2');
+})
 
 
+app.get('/Code', (req,res)=>{
+    res.render('Code');
+})
 
+app.get('/Cuestion', (req,res) => {
+    res.render('Cuestionarios',{
+      numero: numero,
+      selc
+    });
+  })
+  
+  var numero, selc;
+  app.post('/Cuestionarios', (req,res) => {
+    var data = req.body.valor
+    var select = req.body.selc
+  
+    numero = data;
+    selc = select;
+    console.log(select)
+    res.redirect('/MenuCrear')
+  })
+  
+  app.post('/env', (req,res) => {
+    var data = req.body
+    res.send(data);
+  })
+
+app.post('/actualizar/:naruto',(req,res) => {
+    var id = req.params.naruto
+    console.log(id);
+    //const { naruto } = req.params 
+    var datos = {
+        texto: req.body.texto,
+        titulo: req.body.titulo
+    }
+    var metodo = {
+        method: 'PUT',
+        body: JSON.stringify(datos),
+        headers:{
+        'Content-type' : "application/json"
+        }
+    }
+    fetch('http://localhost:7777/practica/'+id, metodo)
+        .then(res => res.json())
+        .then(resp =>{
+            console.log(resp)
+            //setTimeout('document.location.reload()',2000);
+           
+             return res.redirect('/MostrPrac');
+        })
+        .catch(error => console.error('Error:', error))
+        .then(data => {
+          console.log(data);
+        })
+    
+})
 
 
 
